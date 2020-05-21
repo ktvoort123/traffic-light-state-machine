@@ -37,9 +37,15 @@ const App = () => {
 
     service.onTransition(state => {
       console.log(state);
-      // Your code here to change lightStatus when the 
-      //   state of the state machine changes
-
+      switch (state.value) {
+        case 'red': setLightStatus(GREEN_LIGHT);
+          break;
+        case 'green': setLightStatus(YELLOW_LIGHT);
+          break;
+        case 'yellow': setLightStatus(RED_LIGHT);
+          break;
+        default:
+      }
     });
   }, [])
 
